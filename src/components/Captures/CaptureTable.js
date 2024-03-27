@@ -106,6 +106,18 @@ const columns = [
   },
 ];
 
+const updatedColumns = [
+  ...columns,
+  {
+    attr: 'id',
+    label: 'Capture UUID',
+  },
+  {
+    attr: 'wallet_token_id',
+    label: 'Wallet UUID',
+  },
+];
+
 const CaptureTable = () => {
   const {
     filter,
@@ -227,7 +239,8 @@ const CaptureTable = () => {
           <ExportCaptures
             isOpen={isOpenExport}
             handleClose={() => setOpenExport(false)}
-            columns={columns}
+            // columns={columns}
+            columns={updatedColumns}
             filter={filter}
             speciesLookup={speciesLookup}
           />
@@ -323,7 +336,8 @@ export const formatCell = (capture, speciesLookup, attr, renderer) => {
       />
     );
   } else if (attr === 'species_id') {
-    return capture[attr] === null ? '--' : speciesLookup[capture[attr]];
+    // return capture[attr] === null ? '--' : speciesLookup[capture[attr]];
+    return capture[attr] === null ? '' : speciesLookup[capture[attr]];
   } else {
     return renderer ? renderer(capture[attr]) : capture[attr];
   }

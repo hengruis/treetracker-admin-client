@@ -64,7 +64,10 @@ const ExportCaptures = (props) => {
     return captures.map((capture) => {
       let formattedCapture = {};
       Object.keys(selectedColumns).forEach((attr) => {
-        if (['id', 'grower_account_id', 'imageUrl'].includes(attr)) {
+        if (
+          ['reference_id', 'grower_reference_id', 'image_url'].includes(attr)
+        ) {
+          // if (['id', 'grower_account_id', 'imageUrl'].includes(attr)) {
           formattedCapture[attr] = capture[attr];
         } else {
           const renderer = selectedColumns[attr].renderer;

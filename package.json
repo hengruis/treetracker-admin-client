@@ -54,6 +54,7 @@
     "stream": "npm:stream-browserify",
     "typeface-roboto": "*",
     "uuid": "^9.0.1",
+    "webpack": "^5.91.0",
     "zxcvbn": "^4.4.2"
   },
   "scripts": {
